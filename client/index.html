@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login</title>
+  <link rel="stylesheet" href="./public/css/style.css"/>
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+  <main class="page">
+    <div class="auth">
+      <header class="auth__header" aria-label="서비스 로고">
+        <h1 class="brand" aria-label="NAVER">
+          <span class="brand__text">용성대학교 학생종합관리 시스템</span>
+        </h1>
+
+        <!-- <div class="lang">
+          <label class="sr-only" for="langSelect">언어</label>
+          <select id="langSelect" class="lang__select" name="lang">
+          </select>
+        </div> -->
+      </header>
+
+      <section class="card" aria-label="로그인">
+        <nav class="tabs" aria-label="로그인 방식">
+          <button class="tabs__item is-active" type="button" aria-current="page">
+            ID/비밀번호
+          </button>
+          <!-- <button class="tabs__item" type="button">QR코드</button> -->
+        </nav>
+
+        <form class="form" method="post" id="loginForm">
+          <div class="field">
+            <label class="sr-only" for="loginId">아이디 또는 전화번호</label>
+            <input
+              id="loginId"
+              class="input"
+              type="text"
+              name="userId"
+              autocomplete="username"
+              placeholder="아이디"
+            />
+          </div>
+
+          <div class="field">
+            <label class="sr-only" for="password">비밀번호</label>
+            <input
+              id="password"
+              class="input"
+              type="password"
+              name="password"
+              autocomplete="current-password"
+              placeholder="비밀번호"
+            />
+          </div>
+
+          <div class="options">
+            <label class="check">
+              <input class="check__input" type="checkbox" name="keepLogin" />
+              <span class="check__box" aria-hidden="true"></span>
+              <span class="check__label">로그인 상태 유지</span>
+            </label>
+
+            <!-- <label class="toggle" aria-label="IP보안">
+              <span class="toggle__label">IP보안</span>
+              <input class="toggle__input" type="checkbox" name="ipSecure" checked />
+              <span class="toggle__ui" aria-hidden="true"></span>
+              <span class="toggle__state" aria-hidden="true">ON</span>
+            </label> -->
+          </div>
+
+          <button class="btn btn--primary" type="submit">로그인</button>
+          
+          <!-- <p class="hint">지문 · 얼굴 인증을 설정했다면</p>
+          <button class="btn btn--outline" type="button">패스키 로그인</button> -->
+
+          <footer class="links" aria-label="계정 도움말">
+            <a class="links__item" href="#">비밀번호 찾기</a>
+            <span class="links__sep" aria-hidden="true">|</span>
+            <a class="links__item" href="#">아이디 찾기</a>
+            <span class="links__sep" aria-hidden="true">|</span>
+            <a class="links__item" href="#">회원가입</a>
+          </footer>
+          
+          <div class="sso">
+            <button id="googleLoginBtn" class="btn btn--primary sso-btn" type="button">Google</button>
+            <button id="facebookLoginBtn" class="btn btn--primary sso-btn" type="button">FaceBook</button>
+            <button id="twitterLoginBtn" class="btn btn--primary sso-btn" type="button">Twitter</button>
+          </div>
+        </form>
+
+      </section>
+    </div>
+  </main>
+</body>
+</html>

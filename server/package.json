@@ -1,0 +1,24 @@
+{
+  "name": "yong_univ_system",
+  "version": "1.0.0",
+  "description": "node.js 연습 web (학생 종합정보 시스템 관리)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "firebase": "^12.9.0",
+    "firebase-admin": "^13.6.1",
+    "mssql": "^12.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
