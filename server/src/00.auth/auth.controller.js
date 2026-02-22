@@ -32,7 +32,7 @@ exports.sessionLogin = async (req, res, next) => {
 exports.requireAuth = async (req, res, next) => {
   try {
     const sessionCookie = req.cookies?.session;
-    if (!sessionCookie) return res.redirect("/signin");
+    if (!sessionCookie) return res.redirect("/api");
 
     await admin.auth().verifySessionCookie(sessionCookie, true);
     

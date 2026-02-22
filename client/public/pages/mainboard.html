@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>종합정보 관리 Home</title>
 </head>
 <body>
-  <h1>당신은 로그인 성공.</h1>
+    <!-- 공통 레이아웃(템플릿) -->
+  <header>
+    <h1>종합정보 관리</h1>
+    <nav>
+      <a href="/mainboard">Home</a>
+      <a href="/mainboard/users">Users</a>
+      <a href="/mainboard/boards">Boards</a>
+    </nav>
+  </header>
+
+  <!-- 페이지별 내용이 바뀌는 영역 -->
+  <main id="app"></main>
+
+  <!-- 여기만 한 번 -->
+  <!-- <script type="module" src="/src/"></script> -->
 </body>
 </html>

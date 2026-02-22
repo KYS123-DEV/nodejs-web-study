@@ -24,12 +24,15 @@ async function main() {
     app.use(cookieParser());
 
     //정적 경로 설정 
-    //app.use(express.static(path.join(__dirname, '../public')));
     app.use(express.static(path.join(__dirname, '../../client/public')));
 
     //처리 경로 설정 (라우터 설정)
-    app.use('/', mainRouter);
-    app.use('/auth', mainRouter);
+    app.use('/api', mainRouter);
+
+    // 페이지 404 처리
+    app.use((req, res) => {
+      res.status(404).sendFile(path.join(__dirname, '../.././client/public/pages/404.html'));
+    });
 
     // Global error handler
     app.use(errorHandler);

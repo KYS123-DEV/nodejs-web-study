@@ -1,9 +1,9 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
-/*===============*/
-// 기본적으로 로그인이 되어 있다면, 곧바로 mainBoard로 이동
-/*===============*/
+if (location.pathname === '/') {
+  window.location.replace('/api');
+}
 
 /*===============*/
 /* Firebase 설정 */
@@ -23,7 +23,6 @@ const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({
   prompt: "select_account"
 });
-
 
 /*===============*/
 /*메시지 alert    */
@@ -46,7 +45,7 @@ googleBtn?.addEventListener("click", async () => {
     const idToken = await result.user.getIdToken();
 
     // 4) 서버에 보내서 "세션 쿠키"로 교환
-    const res = await fetch("/auth/sessionLogin", {
+    const res = await fetch("/api/auth/sessionLogin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
@@ -70,10 +69,6 @@ googleBtn?.addEventListener("click", async () => {
 const form = document.querySelector('#loginForm');
 const btn = form.querySelector('button[type="submit"]');
 
-if (location.pathname === '/') {
-  window.location.replace('/signin');
-}
-
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const userId = document.querySelector('#loginId')?.value?.trim();
@@ -87,7 +82,7 @@ form.addEventListener('submit', async (e) => {
   btn.disabled = true;
 
   try {
-    const res = await fetch('/auth/login', {
+    const res = await fetch('/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include', // 쿠키 기반(Session/JWT HttpOnly) 쓰면 필수
@@ -105,7 +100,7 @@ form.addEventListener('submit', async (e) => {
 
     setMessage('로그인 성공!', 'success');
 
-    window.location.href = '/auth/mainboard';
+    window.location.href = '/api/auth/mainboard';
   } catch (err) {
     console.error(err);
     setMessage('네트워크 오류가 발생했습니다. 잠시 후 다시 시도하세요.', 'error');
@@ -113,4 +108,3 @@ form.addEventListener('submit', async (e) => {
     btn.disabled = false;
   }
 });
-
